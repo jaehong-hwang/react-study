@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ActionCreators } from './store';
+import { ActionCreators, IState } from './store';
 
 function Counter() {
-    const state = useSelector<number, number>(state => state);
+    const state = useSelector<IState, number>(state => state.countValue);
     const dispatch = useDispatch();
     const handleIncrease = React.useCallback(() => {
         dispatch(ActionCreators.increaseCount());
