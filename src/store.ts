@@ -7,9 +7,9 @@ enum ActionsTypes {
 };
 
 export const ActionCreators = {
-  increaseCount: () => { type: ActionsTypes.INCREASE_COUNT },
-  decreaseCount: () => { type: ActionsTypes.DECREASE_COUNT },
-  resetCount: () => { type: ActionsTypes.RESET_COUNT },
+  increaseCount: () => ({ type: ActionsTypes.INCREASE_COUNT }),
+  decreaseCount: () => ({ type: ActionsTypes.DECREASE_COUNT }),
+  resetCount: () => ({ type: ActionsTypes.RESET_COUNT }),
 };
 
 type Action = 
