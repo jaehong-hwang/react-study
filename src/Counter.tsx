@@ -1,21 +1,22 @@
 import * as React from 'react';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ActionCreators } from './store';
 
 function Counter() {
-    const store = useStore<number>();
+    const state = useSelector<number, number>(state => state);
+    const dispatch = useDispatch();
     const handleIncrease = React.useCallback(() => {
-        store.dispatch(ActionCreators.increaseCount());
+        dispatch(ActionCreators.increaseCount());
     }, []);
     const handleDecrease = React.useCallback(() => {
-        store.dispatch(ActionCreators.decreaseCount());
+        dispatch(ActionCreators.decreaseCount());
     }, []);
     const handleReset = React.useCallback(() => {
-        store.dispatch(ActionCreators.resetCount());
+        dispatch(ActionCreators.resetCount());
     }, []);
     return (
         <div>
-            CounterValue: {store.getState()}
+            CounterValue: {state}
             <button onClick={handleIncrease}>Up</button>
             <button onClick={handleDecrease}>Down</button>
             <button onClick={handleReset}>Reset</button>
